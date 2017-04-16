@@ -28,7 +28,7 @@ $(function() {
       data: send_data,
       //  レスポンス成功時の処理
       success: function(responce) {
-        $('#result').append('<h2>結果</h2>');
+        $('#result').append('<br><br>');
         console.log(responce);
 
         //$('#result').append(JSON.stringify(responce, null, ' '));

@@ -1,0 +1,46 @@
+.app-logo-container{
+	
+}
+
+.app-logo{
+	font-size: 25px;
+    font-weight: 600;
+	text-align: center;
+}
+
+.search-form-container{
+	
+}
+
+.search-form-box{
+	width:520px;
+    display: inline-block;
+    margin-right: -4px;
+}
+
+input.serch-form{
+	border:1px solid rgba(255, 0, 0, 0.2);
+	background-color:rgba(253,232,241,1);
+	height:36px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 0 6px;
+}
+
+input.serch-form::-webkit-input-placeholder {
+    color: #ccc;
+    font-weight: normal;
+}
+input.serch-form:-ms-input-placeholder {
+    color: #ccc;
+    font-weight: normal;
+}
+input.serch-form::-moz-placeholder {
+    color: #ccc;
+    font-weight: normal;
+}
+
+.search-btn{
+	border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
