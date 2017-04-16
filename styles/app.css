@@ -1,3 +1,9 @@
+body {
+	background-color: #666666;
+	color: #ffcccc;
+}
+ 
+
 button.btn{
 	height: 36px;
 	font-size: 16px;

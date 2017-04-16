@@ -3,9 +3,9 @@
 }
 
 .app-logo{
-	font-size: 25px;
     font-weight: 600;
 	text-align: center;
+	font-size: 100px;
 }
 
 .search-form-container{
