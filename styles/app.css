@@ -3,6 +3,9 @@ body {
 	color: #ffcccc;
 }
  
+.inputPassword{
+	text-align:center;
+}
 
 button.btn{
 	height: 36px;
