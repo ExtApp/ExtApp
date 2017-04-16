@@ -30,14 +30,16 @@ $(function() {
       success: function(responce) {
         $('#result').append('<br><br>');
         console.log(responce);
-
         //$('#result').append(JSON.stringify(responce, null, ' '));
         var result2 = responce.result;
         for (var i = 0; i < result2.items.length; i++) {
           $('#result').append('<h3>' + (i+1) + '位： ' + result2.items[i].title + '</h3>');
           $('#result').append('<a href=\"' + result2.items[i].affiliateURL + '\">リンク</a><br/>');
-          $('#result').append('<img src=\"' + result2.items[i].imageURL.large + '\" alt=\"image\"><br/>');
+          //$('#result').append('<img src=\"' + result2.items[i].imageURL.large + '\" alt=\"image\"><br/>');
+          previewActress(result2.items[i]);
         }
+
+
 
         return false;
       },
@@ -55,7 +57,7 @@ $(function() {
 
     return false;
   });
-  
+
   //  Enterキーを押下した場合もトリガーとする
   $('#keyword').keypress(function(e){
     if(e.which == 13){
@@ -73,3 +75,19 @@ $(function() {
     });
 
 });
+
+function previewActress(responce) {
+  //女優 responce.items[i].iteminfo.actress[j];
+    var item = responce.iteminfo;
+
+    if (item.actress == null) {
+      return;
+    }
+    else {
+      for (var j = 0; j < item.actress.length; j=j+3) {
+        $('#result').append(item.actress[j].name + '<br/>');
+      }
+    }
+
+
+}
