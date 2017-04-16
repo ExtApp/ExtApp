@@ -55,10 +55,21 @@ $(function() {
 
     return false;
   });
+  
   //  Enterキーを押下した場合もトリガーとする
   $('#keyword').keypress(function(e){
     if(e.which == 13){
         $("#search").click();
       }
     });
+
+    //結果の削除
+    $(function() {
+      //  クリックイベントにajax処理を登録する
+      $('body').on('click', '#clear', function(e) {
+        //以前の要素を削除
+        $('#result').empty()
+      });
+    });
+
 });
