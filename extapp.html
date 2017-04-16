@@ -21,18 +21,29 @@
   <button id="search" type="button" data-btn-type="ajax">search</button>
   <br><br>
    -->
-   <!-- 認証 -->
-   <input type="button" value="パスワードを入力" onclick="gate();">
+  <div class="search-form-container
+		   	col-lg-4 col-lg-offset-4
+			col-md-4 col-md-offset-4
+			col-sm-6 col-sm-offset-3
+			col-xs-8 col-xs-offset-2">
+	<div class="row">
+		<input id="keyword"
+				name="keyword"
+	     		type="text"
+				class="serch-form col-lg-10 col-md-9 col-sm-10 col-xs-9"
+				placeholder="エッチなキーワードを入力"
+				>
 
+		<button type="button"
+				class="btn btn-danger search-btn col-lg-2 col-md-3 col-sm-2 col-xs-3"
+				id="search"
+				data-btn-type="ajax">Search</button>
+		</div>
+	</div>
 
-   <script type="text/javascript">
-    function gate() {
-       var UserInput = prompt("パスワードは？:","");
-       location.href = UserInput + ".html";
-    }
-    </script>
+  <!-- 結果表示用のdivタグ -->
+  <div id='result'>  </div>
 
-  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="https://rawgit.com/padolsey-archive/jquery.fn/master/cross-domain-ajax/jquery.xdomainajax.js"></script>
   <script type="text/javascript" src="api.js"></script>
