@@ -39,8 +39,6 @@ $(function() {
           previewActress(result2.items[i]);
         }
 
-
-
         return false;
       },
       //  レスポンス失敗時の処理
@@ -85,9 +83,46 @@ function previewActress(responce) {
     }
     else {
       for (var j = 0; j < item.actress.length; j=j+3) {
-        $('#result').append(item.actress[j].name + '<br/>');
+        var born = callActressAPI(item.actress[j].name);
+        console.log(born);
+        //同期処理
+        
+
+        $('#result').append(item.actress[j].name + ' 出身： ' + born + '<br/>');
+        //callActressAPI(item.actress[j].name);
       }
     }
+}
 
-
+function callActressAPI(actress) {
+  var send_data;
+  //  テキストボックスの値を設定
+  send_data = {
+    keyword : actress
+  };
+  //  WebAPIを叩く
+  $.ajax({
+    //  リクエストの内容
+    url: 'https://api.dmm.com/affiliate/v3/ActressSearch?api_id=TwNenmqLNuByU6PYguXK&affiliate_id=extapp-990&output=json',
+    dataType: "jsonp",
+    type:"GET",
+    data: send_data,
+    //  レスポンス成功時の処理
+    success: function(responce) {
+      var result4 = responce.result;
+      //console.log(result4)
+      var born = result4.actress[0].prefectures;
+      //$('#result').append('<h3>' + result4.actress[0].prefectures + '</h3>');
+      console.log('API:' + born);
+      return born;
+    },
+    //  レスポンス失敗時の処理
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log(XMLHttpRequest);
+      console.log(textStatus);
+      console.log(errorThrown);
+      $('div[data-result=""]').html(JSON.stringify("データ取得中にエラーが発生しました。"));
+      return false;
+    }
+  });
 }
